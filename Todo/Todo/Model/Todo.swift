@@ -24,6 +24,19 @@ class Todo: NSObject {
 }
 
 enum TodoPriority {
-    case high, normal
+    case high
+    case normal
     case low
+    
+    func value() -> Int {
+        switch self {
+        case .high:
+            return 0
+        case .normal:
+            return 1
+        case .low:
+            return 2
+        }
+    }
+    
 }

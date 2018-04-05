@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D0AA6F3207620C000205029 /* TodoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0AA6F2207620C000205029 /* TodoManager.swift */; };
 		FF51A7762063AA6A00BF6578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF51A7752063AA6A00BF6578 /* AppDelegate.swift */; };
 		FF51A77B2063AA6A00BF6578 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF51A7792063AA6A00BF6578 /* Main.storyboard */; };
 		FF51A77D2063AA6B00BF6578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF51A77C2063AA6B00BF6578 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D0AA6F2207620C000205029 /* TodoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoManager.swift; sourceTree = "<group>"; };
 		FF51A7722063AA6A00BF6578 /* Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF51A7752063AA6A00BF6578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF51A77A2063AA6A00BF6578 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -39,6 +41,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D0AA6F12076209600205029 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				3D0AA6F2207620C000205029 /* TodoManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		FF51A7692063AA6A00BF6578 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +68,7 @@
 		FF51A7742063AA6A00BF6578 /* Todo */ = {
 			isa = PBXGroup;
 			children = (
+				3D0AA6F12076209600205029 /* Manager */,
 				FF51A78D2063ADDA00BF6578 /* View */,
 				FF51A78A2063AD3400BF6578 /* Controller */,
 				FF51A7872063AAC000BF6578 /* Model */,
@@ -166,6 +177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D0AA6F3207620C000205029 /* TodoManager.swift in Sources */,
 				FF51A7892063AB1300BF6578 /* Todo.swift in Sources */,
 				FF51A78C2063ADB900BF6578 /* TodoViewController.swift in Sources */,
 				FF51A7762063AA6A00BF6578 /* AppDelegate.swift in Sources */,
