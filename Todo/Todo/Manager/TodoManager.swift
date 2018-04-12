@@ -15,7 +15,6 @@ class TodoManager {
     var todos: [Todo] = []
     
     private init() {
-        
     }
     
     func addTodo(todo: Todo) {
