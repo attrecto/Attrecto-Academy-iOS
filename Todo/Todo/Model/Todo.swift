@@ -38,5 +38,16 @@ enum TodoPriority {
             return 2
         }
     }
+
+    func stringValue() -> String {
+        switch self {
+        case .high:
+            return "High"
+        case .normal:
+            return "Normal"
+        case .low:
+            return "Low"
+        }
+    }
     
 }
