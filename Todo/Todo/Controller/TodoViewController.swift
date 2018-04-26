@@ -8,7 +8,8 @@
 
 import UIKit
 
-class TodoViewController: UIViewController, UITableViewDataSource {
+class TodoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
@@ -16,13 +17,10 @@ class TodoViewController: UIViewController, UITableViewDataSource {
         self.setupUI()
     }
     
-    // MARK: - Action
-    
-    @IBAction func onAddTodoClick(_ sender: Any) {
-        let generatedTodos = newTodos()
-        TodoManager.sharedInstance.addTodos(todos: generatedTodos)
-        sortByPriority(todos: &TodoManager.sharedInstance.todos)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        sortByPriority(todos: &TodoManager.sharedInstance.todos)
         self.tableView.reloadData()
     }
     
@@ -36,14 +34,7 @@ class TodoViewController: UIViewController, UITableViewDataSource {
 
     private func setupUI() {
         self.tableView.dataSource = self
-    }
-
-    private func newTodos() -> [Todo] {
-        let todo1 = Todo(title: "Buy milk", todoDescription: nil, date: nil, priority: .low)
-        let todo2 = Todo(title: "Learn swift", todoDescription: "Go to Attrecto office, spend hours, listen carefully, profit", date: Date())
-        let todo3 = Todo(title: "Valami", todoDescription: nil, date: nil, priority: .high)
-
-        return [todo1, todo2, todo3]
+        self.tableView.delegate = self
     }
     
     private func dateToString(date: Date?) -> String {
@@ -94,4 +85,17 @@ class TodoViewController: UIViewController, UITableViewDataSource {
             return UITableViewCell()
         }
     }
+    
+    // MARK: - TableviewDelegate
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // TODO: next course
+        }
+    }
+    
 }

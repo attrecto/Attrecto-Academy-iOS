@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3D0AA6F3207620C000205029 /* TodoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0AA6F2207620C000205029 /* TodoManager.swift */; };
+		3D557A022091BC190080CB42 /* TodoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D557A012091BC190080CB42 /* TodoError.swift */; };
 		75E2C303207F57F6009D32C0 /* NewTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E2C302207F57F6009D32C0 /* NewTodoViewController.swift */; };
 		FF51A7762063AA6A00BF6578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF51A7752063AA6A00BF6578 /* AppDelegate.swift */; };
 		FF51A77B2063AA6A00BF6578 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF51A7792063AA6A00BF6578 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		3D0AA6F2207620C000205029 /* TodoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoManager.swift; sourceTree = "<group>"; };
+		3D557A012091BC190080CB42 /* TodoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoError.swift; sourceTree = "<group>"; };
 		75E2C302207F57F6009D32C0 /* NewTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTodoViewController.swift; sourceTree = "<group>"; };
 		FF51A7722063AA6A00BF6578 /* Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF51A7752063AA6A00BF6578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				FF51A7882063AB1300BF6578 /* Todo.swift */,
+				3D557A012091BC190080CB42 /* TodoError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 			files = (
 				3D0AA6F3207620C000205029 /* TodoManager.swift in Sources */,
 				75E2C303207F57F6009D32C0 /* NewTodoViewController.swift in Sources */,
+				3D557A022091BC190080CB42 /* TodoError.swift in Sources */,
 				FF51A7892063AB1300BF6578 /* Todo.swift in Sources */,
 				FF51A78C2063ADB900BF6578 /* TodoViewController.swift in Sources */,
 				FF51A7762063AA6A00BF6578 /* AppDelegate.swift in Sources */,

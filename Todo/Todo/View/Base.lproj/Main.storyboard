@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nBY-S0-ZP2">
-                                <rect key="frame" x="0.0" y="64" width="375" height="513"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customTodoCell" rowHeight="136" id="zuQ-N0-hWR" customClass="TodoTableViewCell" customModule="Todo" customModuleProvider="target">
@@ -44,8 +44,8 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2T-u8-D7y">
-                                                    <rect key="frame" x="97" y="57" width="253" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="97" y="58" width="253" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -79,21 +79,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8rR-J6-KJo">
-                                <rect key="frame" x="155.5" y="607" width="63" height="30"/>
-                                <state key="normal" title="Add todo"/>
-                                <connections>
-                                    <action selector="onAddTodoClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mwx-lT-UpH"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="8rR-J6-KJo" firstAttribute="top" secondItem="nBY-S0-ZP2" secondAttribute="bottom" constant="30" id="4ST-me-I2m"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nBY-S0-ZP2" secondAttribute="trailing" id="CRF-Wp-zTF"/>
-                            <constraint firstItem="8rR-J6-KJo" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="U8Q-Ot-32j"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nBY-S0-ZP2" secondAttribute="bottom" id="Yt2-io-tFR"/>
                             <constraint firstItem="nBY-S0-ZP2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="bkW-x2-L77"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8rR-J6-KJo" secondAttribute="bottom" constant="30" id="gYY-qE-VwC"/>
                             <constraint firstItem="nBY-S0-ZP2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xTT-4W-c8M"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -143,7 +134,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z53-iS-Bgt" userLabel="Description TextField">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z53-iS-Bgt" userLabel="Description TextField">
                                 <rect key="frame" x="20" y="190" width="335" height="143"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>

@@ -15,9 +15,8 @@ class NewTodoViewController: UIViewController {
     @IBOutlet weak var priorityPicker: UIPickerView!
     @IBOutlet weak var datePicker: UIDatePicker!
 
-    private var priorities: [String] = []
-    // TODO: delete errorMessage class variable!
-    private var errorMessage: String = ""
+    private var priorities: [TodoPriority] = []
+    private var selectedPriority: TodoPriority = .high
 
     // MARK: - Lifecycle
 
@@ -30,18 +29,21 @@ class NewTodoViewController: UIViewController {
     // MARK: - Actions
 
     @IBAction func saveTodo(_ sender: Any) {
-        if self.isValidateTodo() {
+        if let todo = todo() {
+            TodoManager.sharedInstance.addTodo(todo: todo)
+            
+            close()
         } else {
-            let popup = UIAlertController(title: "Warning", message: self.errorMessage, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-
-            popup.addAction(okAction)
-
-            self.present(popup, animated: true, completion: nil)
+            let error = formError()
+            showErrorPopup(todoError: error)
         }
     }
 
     // MARK: - Class methods
+    
+    func close() {
+        self.navigationController?.popViewController(animated: true)
+    }
 
     func setupView() {
         self.priorityPicker.dataSource = self
@@ -49,33 +51,58 @@ class NewTodoViewController: UIViewController {
 
         self.datePicker.datePickerMode = .date
 
-        self.priorities = [TodoPriority.high.stringValue(), TodoPriority.normal.stringValue(), TodoPriority.low.stringValue()]
+        self.priorities = [TodoPriority.high, TodoPriority.normal, TodoPriority.low]
 
         self.priorityPicker.reloadAllComponents()
     }
-
-    func isValidateTodo() -> Bool {
-        self.errorMessage = "The following data are false:\n"
-        var valid = true
-
-        if self.titleTextField.text == "" {
-            errorMessage += "- title\n"
-            valid = false
-        }
-
-        // TODO: date format
-        let today = Date()
-        if self.datePicker.date < today {
-            errorMessage += "- date is yesterday"
-            valid = false
-        }
-
-        return valid
+    
+    func isTitleValid() -> Bool {
+        return self.titleTextField.text != ""
     }
-
-    // TODO: errorMessage
-    func getErrorMessage() -> String {
-        return ""
+    
+    func isDateValid() -> Bool {
+        let today = Date()
+        
+        return self.datePicker.date >= today
+    }
+    
+    func showErrorPopup(todoError: TodoError?) {
+        let popup = UIAlertController(title: "Warning", message: todoError?.errorDescription, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        popup.addAction(okAction)
+        
+        self.present(popup, animated: true, completion: nil)
+    }
+    
+    func formError() -> TodoError? {
+        var description = ""
+        
+        if !isTitleValid() {
+            description += "Invalid title\n"
+        }
+        
+        if !isDateValid() {
+            description += "Invalid date"
+        }
+        
+        return TodoError(errorDescription: description)
+    }
+    
+    func todo() -> Todo? {
+        guard let title = self.titleTextField.text, isTitleValid() else {
+            return nil
+        }
+        
+        guard isDateValid() else {
+            return nil
+        }
+        
+        let description = self.descriptionTextField.text
+        let date = self.datePicker.date
+        let priority = self.selectedPriority
+        
+        return Todo(title: title, todoDescription: description, date: date, priority: priority)
     }
 
 }
@@ -95,7 +122,11 @@ extension NewTodoViewController: UIPickerViewDataSource {
 extension NewTodoViewController: UIPickerViewDelegate {
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.priorities[row]
+        return self.priorities[row].stringValue()
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.selectedPriority = self.priorities[row]
     }
 
 }
