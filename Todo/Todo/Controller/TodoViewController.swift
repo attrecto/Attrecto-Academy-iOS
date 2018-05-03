@@ -62,17 +62,40 @@ class TodoViewController: UIViewController, UITableViewDataSource, UITableViewDe
     //MARK: - DataSource
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 3
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TodoManager.sharedInstance.todos.count
+        let priority = TodoPriority(value: section)
+        return TodoManager.sharedInstance.todos(for: priority).count
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        let priority = TodoPriority(value: section)
+
+        guard TodoManager.sharedInstance.todos(for: priority).count > 0 else {
+            return CGFloat.leastNormalMagnitude
+        }
+
+        return 30.0
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let priority = TodoPriority(value: section)
+
+        guard TodoManager.sharedInstance.todos(for: priority).count > 0 else {
+            return nil
+        }
+
+        return priority.rawValue
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "customTodoCell") as? TodoTableViewCell {
 
-            let todo = TodoManager.sharedInstance.todos[indexPath.row]
+            let priority = TodoPriority(value: indexPath.section)
+
+            let todo = TodoManager.sharedInstance.todos(for: priority)[indexPath.row]
 
             cell.titleLabel.text = todo.title
             cell.descriptionLabel.text = todo.todoDescription
@@ -94,7 +117,14 @@ class TodoViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // TODO: next course
+
+            let priority = TodoPriority(value: indexPath.section)
+
+            let todo = TodoManager.sharedInstance.todos(for: priority)[indexPath.row]
+            TodoManager.sharedInstance.delete(todo: todo)
+
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+
         }
     }
     

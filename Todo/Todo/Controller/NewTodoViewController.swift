@@ -122,7 +122,7 @@ extension NewTodoViewController: UIPickerViewDataSource {
 extension NewTodoViewController: UIPickerViewDelegate {
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.priorities[row].stringValue()
+        return self.priorities[row].rawValue
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

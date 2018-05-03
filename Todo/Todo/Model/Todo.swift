@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Todo: NSObject {
+class Todo: NSObject, Codable {
 
     let title: String
     let todoDescription: String?
@@ -23,10 +23,22 @@ class Todo: NSObject {
     }
 }
 
-enum TodoPriority {
-    case high
-    case normal
-    case low
+enum TodoPriority: String, Codable {
+
+    case high = "High"
+    case normal = "Normal"
+    case low = "Low"
+
+    init(value: Int) {
+        switch value {
+        case 0:
+            self = .high
+        case 1:
+            self = .normal
+        default:
+            self = .low
+        }
+    }
     
     func value() -> Int {
         switch self {
@@ -38,16 +50,4 @@ enum TodoPriority {
             return 2
         }
     }
-
-    func stringValue() -> String {
-        switch self {
-        case .high:
-            return "High"
-        case .normal:
-            return "Normal"
-        case .low:
-            return "Low"
-        }
-    }
-    
 }
