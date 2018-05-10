@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 
 class NewTodoViewController: UIViewController {
 
@@ -31,11 +32,15 @@ class NewTodoViewController: UIViewController {
     @IBAction func saveTodo(_ sender: Any) {
         if let todo = todo() {
             TodoManager.sharedInstance.addTodo(todo: todo)
-            
-            close()
+            HUD.flash(.success, onView: self.view, delay: 1.0) { (_) in
+                self.close()
+            }
+
         } else {
-            let error = formError()
-            showErrorPopup(todoError: error)
+            HUD.flash(.error, onView: self.view, delay: 1.0) { (_) in
+                let error = self.formError()
+                self.showErrorPopup(todoError: error)
+            }
         }
     }
 
