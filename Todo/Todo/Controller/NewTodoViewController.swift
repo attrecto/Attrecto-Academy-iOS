@@ -33,11 +33,13 @@ class NewTodoViewController: UIViewController {
         if let todo = todo() {
             TodoManager.sharedInstance.addTodo(todo: todo)
             HUD.flash(.success, onView: self.view, delay: 3.0) { (_) in
+
                 self.close()
             }
 
         } else {
             HUD.flash(.error, onView: self.view, delay: 3.0) { (_) in
+
                 let error = self.formError()
                 self.showErrorPopup(todoError: error)
             }
