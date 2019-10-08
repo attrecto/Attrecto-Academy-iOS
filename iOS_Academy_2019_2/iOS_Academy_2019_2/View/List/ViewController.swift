@@ -47,5 +47,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let todo = TodoManager.shared.allTodos[indexPath.row]
+        self.performSegue(withIdentifier: "detail", sender: todo)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "detail" {
+            
+            let todo = sender as! Todo
+            let destinationViewController = segue.destination as! DetailViewController
+            destinationViewController.todo = todo
+        }
+    }
 }
 

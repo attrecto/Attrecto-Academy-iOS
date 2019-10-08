@@ -12,14 +12,13 @@ class TodoManager {
     
     static let shared = TodoManager()
     
-    var allTodos: [Todo] = [
-        Todo(title: "Tej", description: "vegyél tejet!", date: Date(), priority: .low),
-        Todo(title: "Kenyér", description: "vegyél kenyeret!", date: Date(), priority: .medium),
-        Todo(title: "Vaj", description: "vegyél kenyeret!", date: Date(), priority: .high)
-    ]
+    var allTodos: [Todo] = []
     
     private init() {
         
     }
     
+    func addTodo(todo: Todo) {
+        allTodos.append(todo)
+    }
 }
