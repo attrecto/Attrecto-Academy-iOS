@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct Todo {
+struct Todo: Codable {
     let title: String
     let description: String
     let date: Date
     let priority: Priority
     
-    enum Priority {
-        case low, medium, high
+    enum Priority: Int, Codable {
+        case low = 0, medium, high
     }
 }
