@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		127412E52355A46E009D2FF5 /* AddTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127412E42355A46E009D2FF5 /* AddTodoViewController.swift */; };
 		3D01D4822339E3CC004ABC12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D01D4812339E3CC004ABC12 /* AppDelegate.swift */; };
 		3D01D4842339E3CC004ABC12 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D01D4832339E3CC004ABC12 /* SceneDelegate.swift */; };
 		3D01D4862339E3CC004ABC12 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D01D4852339E3CC004ABC12 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		127412E42355A46E009D2FF5 /* AddTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoViewController.swift; sourceTree = "<group>"; };
 		3D01D47E2339E3CC004ABC12 /* iOS_Academy_2019_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Academy_2019_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D01D4812339E3CC004ABC12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D01D4832339E3CC004ABC12 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		127412E62355A491009D2FF5 /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				127412E42355A46E009D2FF5 /* AddTodoViewController.swift */,
+			);
+			path = Add;
+			sourceTree = "<group>";
+		};
 		3D01D4752339E3CC004ABC12 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +109,7 @@
 				FF20BE33234C6B6F003E7DB5 /* Detail */,
 				FF20BE32234C6B2B003E7DB5 /* List */,
 				3D01D4872339E3CC004ABC12 /* Main.storyboard */,
+				127412E62355A491009D2FF5 /* Add */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -194,6 +205,7 @@
 				FF49609F234332E20027313A /* TodoManager.swift in Sources */,
 				3D01D4822339E3CC004ABC12 /* AppDelegate.swift in Sources */,
 				3D01D4842339E3CC004ABC12 /* SceneDelegate.swift in Sources */,
+				127412E52355A46E009D2FF5 /* AddTodoViewController.swift in Sources */,
 				FF49609823432F540027313A /* TodoTableViewCell.swift in Sources */,
 				FF49609D234331D20027313A /* Todo.swift in Sources */,
 				FF20BE37234C6BCC003E7DB5 /* DetailViewController.swift in Sources */,

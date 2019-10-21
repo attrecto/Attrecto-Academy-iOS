@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z8v-op-8nY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z8v-op-8nY">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -93,7 +93,7 @@
                     <navigationItem key="navigationItem" id="X5v-z5-TyS">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="7at-DX-7D0">
                             <connections>
-                                <segue destination="S7R-d3-zBz" kind="presentation" id="oX5-j0-oRR"/>
+                                <segue destination="S7R-d3-zBz" kind="show" id="oX5-j0-oRR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -106,24 +106,16 @@
             </objects>
             <point key="canvasLocation" x="-891" y="130"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Todo View Controller-->
         <scene sceneID="dV0-Yt-Oec">
             <objects>
-                <viewController id="S7R-d3-zBz" sceneMemberID="viewController">
+                <viewController id="S7R-d3-zBz" customClass="AddTodoViewController" customModule="iOS_Academy_2019_2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9l5-zt-Vwx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Gh-hz-Mge">
-                                <rect key="frame" x="20" y="20" width="39" height="30"/>
-                                <state key="normal" title="Close"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ojb-oz-uRF">
-                                <rect key="frame" x="360" y="20" width="34" height="30"/>
-                                <state key="normal" title="Save"/>
-                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a4z-qC-UrQ">
-                                <rect key="frame" x="0.0" y="50" width="414" height="666"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zVz-eI-8jc">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="503"/>
@@ -186,8 +178,9 @@
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sFI-H7-lSO">
                                                 <rect key="frame" x="0.0" y="472" width="414" height="32"/>
                                                 <segments>
-                                                    <segment title="First"/>
-                                                    <segment title="Second"/>
+                                                    <segment title="Low"/>
+                                                    <segment title="Medium"/>
+                                                    <segment title="High"/>
                                                 </segments>
                                             </segmentedControl>
                                         </subviews>
@@ -205,16 +198,30 @@
                         <constraints>
                             <constraint firstItem="seh-uH-4nh" firstAttribute="bottom" secondItem="a4z-qC-UrQ" secondAttribute="bottom" id="3uz-Jo-OjY"/>
                             <constraint firstItem="zVz-eI-8jc" firstAttribute="width" secondItem="seh-uH-4nh" secondAttribute="width" id="5b7-8G-KAf"/>
-                            <constraint firstItem="seh-uH-4nh" firstAttribute="trailing" secondItem="Ojb-oz-uRF" secondAttribute="trailing" constant="20" id="7bC-le-D7P"/>
-                            <constraint firstItem="4Gh-hz-Mge" firstAttribute="top" secondItem="seh-uH-4nh" secondAttribute="top" constant="20" id="97M-3Y-t8W"/>
-                            <constraint firstItem="a4z-qC-UrQ" firstAttribute="top" secondItem="4Gh-hz-Mge" secondAttribute="bottom" id="FOq-8i-HuI"/>
-                            <constraint firstItem="Ojb-oz-uRF" firstAttribute="top" secondItem="seh-uH-4nh" secondAttribute="top" constant="20" id="WeE-wQ-Xr5"/>
                             <constraint firstItem="seh-uH-4nh" firstAttribute="trailing" secondItem="a4z-qC-UrQ" secondAttribute="trailing" id="a0M-y8-fhu"/>
                             <constraint firstItem="a4z-qC-UrQ" firstAttribute="leading" secondItem="seh-uH-4nh" secondAttribute="leading" id="b9G-8j-BX7"/>
-                            <constraint firstItem="4Gh-hz-Mge" firstAttribute="leading" secondItem="seh-uH-4nh" secondAttribute="leading" constant="20" id="yUt-Oq-F3n"/>
+                            <constraint firstItem="a4z-qC-UrQ" firstAttribute="top" secondItem="seh-uH-4nh" secondAttribute="top" id="iqI-q0-jxW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="seh-uH-4nh"/>
                     </view>
+                    <navigationItem key="navigationItem" id="HLk-OK-nRG">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Ahs-hL-Zy3">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ojb-oz-uRF">
+                                <rect key="frame" x="360" y="7" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="S7R-d3-zBz" eventType="touchUpInside" id="CTn-ol-edM"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="datePicker" destination="50M-tx-0RE" id="xv3-dz-fzg"/>
+                        <outlet property="descriptionInputField" destination="OSQ-dh-R4v" id="Ioj-Gj-iSi"/>
+                        <outlet property="nameInputField" destination="vgP-bv-Bgv" id="EAh-rG-dzM"/>
+                        <outlet property="prioritySegmentedControl" destination="sFI-H7-lSO" id="XOv-PD-FBu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Tf-xY-aiS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
