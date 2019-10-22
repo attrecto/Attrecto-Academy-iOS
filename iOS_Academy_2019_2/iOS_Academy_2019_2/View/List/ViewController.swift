@@ -21,15 +21,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
+    
+    // MARK: - TableView
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return getTodosByPriority().count
+    }
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TodoManager.shared.allTodos.count
+        let sections = getTodosByPriority()
+        return sections[section].todos.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let sections = getTodosByPriority()
+        return sections[section].priority.stringValue()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for: indexPath) as! TodoTableViewCell
         
-        let todo = TodoManager.shared.allTodos[indexPath.row]
+        let sections = getTodosByPriority()
+        let todo = sections[indexPath.section].todos[indexPath.row]
         
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
@@ -53,7 +66,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let todo = TodoManager.shared.allTodos[indexPath.row]
+        let sections = getTodosByPriority()
+        let todo = sections[indexPath.section].todos[indexPath.row]
         self.performSegue(withIdentifier: "detail", sender: todo)
     }
     
@@ -66,5 +80,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             destinationViewController.todo = todo
         }
     }
+    
+    private func getTodosByPriority() -> [Section] {
+        var sections = [Section]()
+        
+        let reversedPriorityCases = Todo.Priority.allCases.reversed()
+        
+        for priority in reversedPriorityCases {
+            let todos = TodoManager.shared.todos(for: priority)
+            
+            if !todos.isEmpty {
+                let section = Section(priority: priority, todos: todos)
+                
+                sections.append(section)
+            }
+        }
+        
+        return sections
+    }
 }
-

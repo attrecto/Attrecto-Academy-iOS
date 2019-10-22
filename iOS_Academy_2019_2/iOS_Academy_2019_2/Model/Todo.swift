@@ -14,7 +14,18 @@ struct Todo: Codable {
     let date: Date
     let priority: Priority
     
-    enum Priority: Int, Codable {
+    enum Priority: Int, Codable, CaseIterable {
         case low = 0, medium, high
+                
+        func stringValue() -> String {
+            switch self {
+            case .low:
+                return "Low"
+            case .medium:
+                return "Medium"
+            case .high:
+                return "High"
+            }
+        }
     }
 }

@@ -17,6 +17,14 @@ class AddTodoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
+        self.view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        nameInputField.resignFirstResponder()
+        descriptionInputField.resignFirstResponder()
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
