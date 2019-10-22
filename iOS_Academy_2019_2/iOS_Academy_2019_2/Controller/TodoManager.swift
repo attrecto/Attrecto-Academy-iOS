@@ -24,12 +24,19 @@ class TodoManager {
         saveTodos()
     }
     
-    func saveTodos() {
-        guard let jsonData = try? JSONEncoder().encode(allTodos) else {return}
-        UserDefaults.standard.set(jsonData, forKey: TodoManager.todoKey)
+    func todos(for priority: Todo.Priority) -> [Todo] {
+        return allTodos.filter { (todo) -> Bool in
+            return todo.priority == priority
+        }
     }
     
-    func loadTodos() -> [Todo] {
+    private func saveTodos() {
+        guard let jsonData = try? JSONEncoder().encode(allTodos) else {return}
+        UserDefaults.standard.set(jsonData, forKey: TodoManager.todoKey)
+        UserDefaults.standard.synchronize()
+    }
+    
+    private func loadTodos() -> [Todo] {
         guard let jsonData = UserDefaults.standard.data(forKey: TodoManager.todoKey) else {return []}
         guard let decodedTodos = try? JSONDecoder().decode([Todo].self, from: jsonData) else {return []}
         return decodedTodos
